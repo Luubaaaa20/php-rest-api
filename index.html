@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>AJAX Test</title>
+</head>
+<body>
+<h2>Playlists JSON Demo</h2>
+<button onclick="loadAll()">Завантажити всі плейлисти</button>
+<button onclick="loadOne()">Завантажити плейлист #1</button>
+
+<script>
+async function loadAll() {
+  const res = await fetch("api.php?action=list");
+  const json = await res.json();
+  console.log(json);
+}
+
+async function loadOne() {
+  const res = await fetch("api.php?action=get&id=1");
+  const json = await res.json();
+  console.log(json);
+}
+</script>
+
+</body>
+</html>
